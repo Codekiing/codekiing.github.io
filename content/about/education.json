@@ -1,0 +1,16 @@
+[
+  {
+    "school": "The Chinese University of Hong Kong",
+    "degree": "Master's",
+    "field": "Artificial Intelligence and Robotics",
+    "dates": "Sep 2025 — Jun 2027",
+    "logo": "/images/cuhk-emblem.jpg"
+  },
+  {
+    "school": "Beijing Institute of Technology",
+    "degree": "Bachelor's",
+    "field": "Control Science and Engineering",
+    "dates": "Sep 2020 — Jun 2024",
+    "logo": "/images/bit-emblem-display.png"
+  }
+]

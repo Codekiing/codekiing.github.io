@@ -1,0 +1,53 @@
+[
+  {
+    "start": "2026-09",
+    "period": "Sep 2026 — Present",
+    "role": "Researcher",
+    "organization": "Model Team, Telos Inc.",
+    "summary": "Working on mid-training for full-duplex omnimodal models.",
+    "logo": "/images/telos-logo-display.png",
+    "logoClass": "telos-mark"
+  },
+  {
+    "start": "2026-02",
+    "period": "Feb 2026 — Sep 2026",
+    "role": "LLM Algorithm Engineer Intern",
+    "organization": "2012 Lab, Huawei",
+    "summary": "Worked on LLM post-training, Agentic RL, Skill RL, and RSI.",
+    "logo": "/images/huawei-2012-labs-black.png",
+    "logoClass": "huawei-2012-mark"
+  },
+  {
+    "start": "2025-09",
+    "period": "Sep 2025 — Feb 2026",
+    "role": "LLM Algorithm Intern",
+    "organization": "Center for AI Large Foundation Models, SRIBD",
+    "summary": "Focused on speech and medical large language models.",
+    "logo": "/images/sribd-logo.png"
+  },
+  {
+    "start": "2025-03",
+    "period": "Mar 2025 — Jul 2025",
+    "role": "Research Intern",
+    "organization": "Research Institute, GF Futures",
+    "summary": "Researched algorithms for LLM applications.",
+    "logo": "/images/gf-futures-source.png",
+    "logoClass": "gf-mark"
+  },
+  {
+    "start": "2024-09",
+    "period": "Sep 2024 — Jun 2025",
+    "role": "Research Assistant",
+    "organization": "Institute of Intelligent Sensing & Motion Control, BIT",
+    "summary": "Worked with Prof. Dawei Shi.",
+    "logo": "/images/bit-automation-emblem-display.png"
+  },
+  {
+    "start": "2023-12",
+    "period": "Dec 2023 — Aug 2024",
+    "role": "Research Assistant",
+    "organization": "Institute of Control Theory & Control Engineering, BIT",
+    "summary": "Worked with Researcher Sijie Yin.",
+    "logo": "/images/bit-emblem-display.png"
+  }
+]

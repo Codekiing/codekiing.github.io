@@ -1,0 +1,20 @@
+[
+  {
+    "name": "verl",
+    "description": "大语言模型强化学习框架",
+    "url": "https://github.com/Codekiing/verl",
+    "source": "verl-project/verl"
+  },
+  {
+    "name": "vLLM",
+    "description": "高吞吐量的大模型推理与服务引擎",
+    "url": "https://github.com/Codekiing/vllm",
+    "source": "Jackie2049/vllm"
+  },
+  {
+    "name": "SGLang",
+    "description": "大语言模型与多模态模型服务框架",
+    "url": "https://github.com/Codekiing/sglang",
+    "source": "sgl-project/sglang"
+  }
+]

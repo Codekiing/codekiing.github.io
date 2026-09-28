@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 105 1440 480" role="img" aria-labelledby="title description">
+  <title id="title">JobPilot project overview</title>
+  <desc id="description">A four-stage, reviewable job-search workflow: parse a resume and goals, build a reusable candidate profile, find and explain job matches, then review choices and prepare applications. Supporting layers preserve evidence and keep final decisions with the candidate.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1 9 5 1 9" fill="none" stroke="#718a98" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="feedback-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1 9 5 1 9" fill="none" stroke="#8c79ac" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1440" height="600" fill="#fcfdfd"/>
+  <rect x="44" y="125" width="1352" height="300" rx="22" fill="#f3f7f8" stroke="#d8e3e7" stroke-width="2"/>
+  <text x="72" y="160" fill="#526b78" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1.4">A CONNECTED, INSPECTABLE PIPELINE</text>
+
+  <rect x="73" y="187" width="290" height="158" rx="15" fill="#eaf2f8" stroke="#96bacd" stroke-width="2"/>
+  <circle cx="101" cy="217" r="17" fill="#d3e5f0"/>
+  <text x="101" y="223" text-anchor="middle" fill="#356984" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">1</text>
+  <text x="129" y="223" fill="#4a7185" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1">CAPTURE</text>
+  <text x="96" y="268" fill="#203846" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">Resume + goals</text>
+  <text x="96" y="300" fill="#536b78" font-family="Arial, Helvetica, sans-serif" font-size="17">documents + preferences</text>
+  <text x="96" y="325" fill="#536b78" font-family="Arial, Helvetica, sans-serif" font-size="17">parsed locally</text>
+
+  <path d="M371 266 H396" fill="none" stroke="#718a98" stroke-width="2.6" marker-end="url(#arrow)"/>
+
+  <rect x="405" y="187" width="290" height="158" rx="15" fill="#e9f4f2" stroke="#92bcb6" stroke-width="2"/>
+  <circle cx="433" cy="217" r="17" fill="#d4eae6"/>
+  <text x="433" y="223" text-anchor="middle" fill="#3e7b73" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">2</text>
+  <text x="461" y="223" fill="#4e8079" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1">STRUCTURE</text>
+  <text x="428" y="268" fill="#223d3a" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">Candidate profile</text>
+  <text x="428" y="300" fill="#58736f" font-family="Arial, Helvetica, sans-serif" font-size="17">facts · skills · constraints</text>
+  <text x="428" y="325" fill="#58736f" font-family="Arial, Helvetica, sans-serif" font-size="17">reusable across stages</text>
+
+  <path d="M703 266 H728" fill="none" stroke="#718a98" stroke-width="2.6" marker-end="url(#arrow)"/>
+
+  <rect x="737" y="187" width="290" height="158" rx="15" fill="#fbf2e8" stroke="#d6b58d" stroke-width="2"/>
+  <circle cx="765" cy="217" r="17" fill="#f1e1cd"/>
+  <text x="765" y="223" text-anchor="middle" fill="#936b3f" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">3</text>
+  <text x="793" y="223" fill="#9b7951" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1">COMPARE</text>
+  <text x="760" y="268" fill="#483b2b" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">Explainable matches</text>
+  <text x="760" y="300" fill="#826d55" font-family="Arial, Helvetica, sans-serif" font-size="17">sites + imports · dedupe</text>
+  <text x="760" y="325" fill="#826d55" font-family="Arial, Helvetica, sans-serif" font-size="17">source links + score reasons</text>
+
+  <path d="M1035 266 H1060" fill="none" stroke="#718a98" stroke-width="2.6" marker-end="url(#arrow)"/>
+
+  <rect x="1069" y="187" width="290" height="158" rx="15" fill="#f1eef8" stroke="#b8add0" stroke-width="2"/>
+  <circle cx="1097" cy="217" r="17" fill="#e3ddf0"/>
+  <text x="1097" y="223" text-anchor="middle" fill="#6d5b91" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">4</text>
+  <text x="1125" y="223" fill="#7c6c9b" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1">PREPARE</text>
+  <text x="1092" y="268" fill="#3b354b" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">Review + apply</text>
+  <text x="1092" y="300" fill="#6d6580" font-family="Arial, Helvetica, sans-serif" font-size="17">company limits · field plans</text>
+  <text x="1092" y="325" fill="#6d6580" font-family="Arial, Helvetica, sans-serif" font-size="17">assisted fill when supported</text>
+
+  <path d="M1214 349 V390 H551 V350" fill="none" stroke="#a290bd" stroke-width="2.2" stroke-dasharray="7 6" marker-end="url(#feedback-arrow)"/>
+  <rect x="768" y="370" width="280" height="29" rx="14" fill="#f3f7f8"/>
+  <text x="908" y="390" text-anchor="middle" fill="#786a91" font-family="Arial, Helvetica, sans-serif" font-size="15">candidate reviews · edits · reruns</text>
+
+  <text x="44" y="455" fill="#647985" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1.2">DESIGN PRINCIPLES</text>
+
+  <rect x="44" y="472" width="422" height="100" rx="14" fill="#ffffff" stroke="#d9e4e9" stroke-width="2"/>
+  <circle cx="78" cy="506" r="17" fill="#e5eff3"/>
+  <path d="M72 499 H82 L86 503 V514 H72 Z M82 499 V503 H86 M75 507 H83 M75 511 H83" fill="none" stroke="#5d8395" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="109" y="506" fill="#263941" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Inspectable artifacts</text>
+  <text x="109" y="534" fill="#667983" font-family="Arial, Helvetica, sans-serif" font-size="16">Original text and JSON outputs</text>
+  <text x="109" y="556" fill="#667983" font-family="Arial, Helvetica, sans-serif" font-size="16">can be reviewed or rerun.</text>
+
+  <rect x="509" y="472" width="422" height="100" rx="14" fill="#ffffff" stroke="#d9e4e9" stroke-width="2"/>
+  <circle cx="543" cy="506" r="17" fill="#f6ecdf"/>
+  <path d="M535 510 L540 505 L544 508 L551 499 M535 515 H552" fill="none" stroke="#a37a50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="574" y="506" fill="#263941" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Evidence with each match</text>
+  <text x="574" y="534" fill="#667983" font-family="Arial, Helvetica, sans-serif" font-size="16">Source links, score reasons, and</text>
+  <text x="574" y="556" fill="#667983" font-family="Arial, Helvetica, sans-serif" font-size="16">company-limit verification status.</text>
+
+  <rect x="974" y="472" width="422" height="100" rx="14" fill="#ffffff" stroke="#d9e4e9" stroke-width="2"/>
+  <circle cx="1008" cy="506" r="17" fill="#eae6f3"/>
+  <path d="M1000 506 L1006 512 L1017 499" fill="none" stroke="#806f9f" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1039" y="506" fill="#263941" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Candidate in control</text>
+  <text x="1039" y="534" fill="#667983" font-family="Arial, Helvetica, sans-serif" font-size="16">Approves field entry and uploads;</text>
+  <text x="1039" y="556" fill="#667983" font-family="Arial, Helvetica, sans-serif" font-size="16">submits each application.</text>
+</svg>
