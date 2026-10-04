@@ -13,10 +13,80 @@ if ('ResizeObserver' in window) {
   if (trail) resize.observe(trail);
 }
 const cover = document.querySelector('.hero-section');
+const experience = document.querySelector('#experience');
+const motion = matchMedia('(prefers-reduced-motion: reduce)');
+let turningPage = false;
+
+function coverIsVisible() {
+  return cover && experience && cover.getBoundingClientRect().bottom > (header?.offsetHeight || 0) + 80;
+}
+
+async function turnToExperience() {
+  if (!coverIsVisible() || turningPage) return;
+  turningPage = true;
+  const headerHeight = header?.offsetHeight || 0;
+  const destination = experience.getBoundingClientRect().top + scrollY - headerHeight;
+  const animatePage = !motion.matches && typeof cover.animate === 'function';
+  let overlay;
+
+  if (animatePage) {
+    overlay = cover.cloneNode(true);
+    overlay.removeAttribute('id');
+    overlay.classList.add('hero-turn-overlay');
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.querySelectorAll('a').forEach(link => { link.tabIndex = -1; });
+    document.body.append(overlay);
+  }
+
+  root.classList.add('page-turning');
+  experience.classList.remove('reveal-pending');
+  scrollTo(0, destination);
+
+  if (overlay) {
+    try {
+      await overlay.animate([
+        { transform: 'perspective(1400px) rotateX(0deg)', opacity: 1 },
+        { transform: 'perspective(1400px) rotateX(84deg)', opacity: .65 }
+      ], { duration: 850, easing: 'cubic-bezier(.65, 0, .25, 1)', fill: 'forwards' }).finished;
+    } catch {}
+    overlay.remove();
+  }
+  root.classList.remove('page-turning');
+  turningPage = false;
+}
+
+window.addEventListener('wheel', event => {
+  if (turningPage) {
+    event.preventDefault();
+  } else if (event.deltaY > 3 && coverIsVisible()) {
+    event.preventDefault();
+    turnToExperience();
+  }
+}, { passive: false });
+
+let touchStartY = null;
+cover?.addEventListener('touchstart', event => {
+  touchStartY = event.touches[0]?.clientY ?? null;
+}, { passive: true });
+cover?.addEventListener('touchmove', event => {
+  if (touchStartY === null || !coverIsVisible()) return;
+  const distance = touchStartY - (event.touches[0]?.clientY ?? touchStartY);
+  if (distance > 0) event.preventDefault();
+  if (distance > 30) {
+    touchStartY = null;
+    turnToExperience();
+  }
+}, { passive: false });
+cover?.addEventListener('touchend', () => { touchStartY = null; });
+
 cover?.addEventListener('click', event => {
-  if (event.target instanceof Element && event.target.closest('a, button')) return;
+  if (event.target instanceof Element) {
+    const link = event.target.closest('a, button');
+    if (link && !link.matches('.hero-next')) return;
+    if (link?.matches('.hero-next')) event.preventDefault();
+  }
   if (getSelection()?.toString()) return;
-  document.querySelector('#experience')?.scrollIntoView();
+  turnToExperience();
 });
 const themeButton = document.querySelector('.theme-toggle');
 const systemTheme = matchMedia('(prefers-color-scheme: dark)');
@@ -43,7 +113,6 @@ if (themeButton) {
     }
   });
 }
-const motion = matchMedia('(prefers-reduced-motion: reduce)');
 if ('IntersectionObserver' in window && !motion.matches) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
