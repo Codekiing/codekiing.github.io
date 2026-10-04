@@ -17,13 +17,8 @@ const experience = document.querySelector('#experience');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 let turningPage = false;
 let pageTurnGuard = false;
-let pageTurnGuardTimer;
-
-function holdPageTurn() {
-  pageTurnGuard = true;
-  clearTimeout(pageTurnGuardTimer);
-  pageTurnGuardTimer = setTimeout(() => { pageTurnGuard = false; }, 600);
-}
+let lastWheelAt = 0;
+let touchTurnActive = false;
 
 function coverIsVisible() {
   return cover && experience && cover.getBoundingClientRect().bottom > (header?.offsetHeight || 0) + 80;
@@ -63,24 +58,34 @@ async function turnToExperience() {
   scrollTo(0, destination);
   root.classList.remove('page-turning');
   turningPage = false;
-  holdPageTurn();
+  pageTurnGuard = true;
 }
 
 window.addEventListener('wheel', event => {
+  const now = performance.now();
   if (turningPage) {
     event.preventDefault();
+    lastWheelAt = now;
   } else if (pageTurnGuard) {
-    event.preventDefault();
-    holdPageTurn();
+    // Events close together belong to the same trackpad gesture. A pause starts a new one.
+    if (now - lastWheelAt < 40) {
+      event.preventDefault();
+      lastWheelAt = now;
+    } else {
+      pageTurnGuard = false;
+    }
   } else if (event.deltaY > 3 && coverIsVisible()) {
     event.preventDefault();
+    lastWheelAt = now;
     turnToExperience();
   }
 }, { passive: false });
 
 window.addEventListener('touchmove', event => {
-  if (turningPage || pageTurnGuard) event.preventDefault();
+  if (turningPage || touchTurnActive) event.preventDefault();
 }, { passive: false });
+window.addEventListener('touchend', () => { touchTurnActive = false; });
+window.addEventListener('touchcancel', () => { touchTurnActive = false; });
 
 let touchStartY = null;
 cover?.addEventListener('touchstart', event => {
@@ -92,6 +97,7 @@ cover?.addEventListener('touchmove', event => {
   if (distance > 0) event.preventDefault();
   if (distance > 30) {
     touchStartY = null;
+    touchTurnActive = true;
     turnToExperience();
   }
 }, { passive: false });
