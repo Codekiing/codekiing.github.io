@@ -16,6 +16,14 @@ const cover = document.querySelector('.hero-section');
 const experience = document.querySelector('#experience');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 let turningPage = false;
+let pageTurnGuard = false;
+let pageTurnGuardTimer;
+
+function holdPageTurn() {
+  pageTurnGuard = true;
+  clearTimeout(pageTurnGuardTimer);
+  pageTurnGuardTimer = setTimeout(() => { pageTurnGuard = false; }, 600);
+}
 
 function coverIsVisible() {
   return cover && experience && cover.getBoundingClientRect().bottom > (header?.offsetHeight || 0) + 80;
@@ -51,17 +59,27 @@ async function turnToExperience() {
     } catch {}
     overlay.remove();
   }
+  // Finish at the start of Experience even if a trackpad sends more events mid-turn.
+  scrollTo(0, destination);
   root.classList.remove('page-turning');
   turningPage = false;
+  holdPageTurn();
 }
 
 window.addEventListener('wheel', event => {
   if (turningPage) {
     event.preventDefault();
+  } else if (pageTurnGuard) {
+    event.preventDefault();
+    holdPageTurn();
   } else if (event.deltaY > 3 && coverIsVisible()) {
     event.preventDefault();
     turnToExperience();
   }
+}, { passive: false });
+
+window.addEventListener('touchmove', event => {
+  if (turningPage || pageTurnGuard) event.preventDefault();
 }, { passive: false });
 
 let touchStartY = null;
