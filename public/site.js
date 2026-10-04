@@ -12,6 +12,12 @@ if ('ResizeObserver' in window) {
   if (header) resize.observe(header);
   if (trail) resize.observe(trail);
 }
+const cover = document.querySelector('.hero-section');
+cover?.addEventListener('click', event => {
+  if (event.target instanceof Element && event.target.closest('a, button')) return;
+  if (getSelection()?.toString()) return;
+  document.querySelector('#experience')?.scrollIntoView();
+});
 const themeButton = document.querySelector('.theme-toggle');
 const systemTheme = matchMedia('(prefers-color-scheme: dark)');
 let explicitTheme = false;
