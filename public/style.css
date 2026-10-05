@@ -279,7 +279,7 @@ main p,.prose li{text-align:justify;text-align-last:start;text-justify:auto}
 .hero-next{position:absolute;z-index:2;left:50%;bottom:23px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:14px;padding:8px 18px;border:1px solid #ffffff77;border-radius:999px;background:#06132488;color:#fff;font-size:13px;line-height:1.5;white-space:nowrap;backdrop-filter:blur(8px);transition:background .2s,transform .2s}
 .hero-next:hover{background:#061324cf;transform:translate(-50%,-3px)}
 .hero-next span:last-child{font-size:20px;line-height:1}
-html.page-turning{scroll-behavior:auto!important}
+html.page-turning{scroll-behavior:auto!important;overflow-y:hidden!important}
 .hero-section.hero-turn-overlay{
   position:fixed;
   z-index:25;
