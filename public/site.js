@@ -16,8 +16,7 @@ const cover = document.querySelector('.hero-section');
 const experience = document.querySelector('#experience');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 let turningPage = false;
-let pageTurnGuard = false;
-let lastWheelAt = 0;
+let lastWheelAt = -Infinity;
 let touchTurnActive = false;
 
 function coverIsVisible() {
@@ -50,15 +49,18 @@ async function turnToExperience() {
       await overlay.animate([
         { transform: 'perspective(1400px) rotateX(0deg)', opacity: 1 },
         { transform: 'perspective(1400px) rotateX(84deg)', opacity: .65 }
-      ], { duration: 850, easing: 'cubic-bezier(.65, 0, .25, 1)', fill: 'forwards' }).finished;
+      ], { duration: 750, easing: 'cubic-bezier(.65, 0, .25, 1)', fill: 'forwards' }).finished;
     } catch {}
+    // Let the triggering wheel gesture finish before exposing normal scrolling.
+    while (performance.now() - lastWheelAt < 80) {
+      await new Promise(resolve => setTimeout(resolve, 80 - (performance.now() - lastWheelAt)));
+    }
     overlay.remove();
   }
   // Finish at the start of Experience even if a trackpad sends more events mid-turn.
   scrollTo(0, destination);
   root.classList.remove('page-turning');
   turningPage = false;
-  pageTurnGuard = true;
 }
 
 window.addEventListener('wheel', event => {
@@ -66,14 +68,6 @@ window.addEventListener('wheel', event => {
   if (turningPage) {
     event.preventDefault();
     lastWheelAt = now;
-  } else if (pageTurnGuard) {
-    // Events close together belong to the same trackpad gesture. A pause starts a new one.
-    if (now - lastWheelAt < 40) {
-      event.preventDefault();
-      lastWheelAt = now;
-    } else {
-      pageTurnGuard = false;
-    }
   } else if (event.deltaY > 3 && coverIsVisible()) {
     event.preventDefault();
     lastWheelAt = now;
